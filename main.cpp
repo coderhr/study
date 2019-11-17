@@ -6,7 +6,201 @@
 
 using namespace std;
 
-class Box{
+class Shape{
+public:
+    virtual int getArea() = 0;
+    void setWidth(int w){
+        width = w;
+    }
+    void setHeight(int h){
+        height = h;
+    }
+protected:
+    int width;
+    int height;
+};
+class Rectangle: public Shape{
+public:
+    int getArea(){
+        return (width*height);
+    }
+};
+class Triangle: public Shape{
+public:
+    int getArea(){
+        return (width*height)/2;
+    }
+};
+int main(){
+    Rectangle Rect;
+    Triangle Tri;
+
+    Rect.setWidth(5);
+    Rect.setHeight(7);
+
+    cout << "Total Rectangle area: " << Rect.getArea() << endl;
+
+    Tri.setWidth(5);
+    Tri.setHeight(7);
+
+    cout << "Total Triangle area: " << Tri.getArea() << endl;
+
+    return 0;
+}
+/*class Shape{
+protected:
+    int width, height;
+public:
+    Shape(int a = 0, int b = 0){
+        width = a;
+        height = b;
+    }
+    virtual int area(){
+        cout << "Parent class area: " << endl;
+        return 0;
+    }
+};
+class Rectangle: public Shape{
+public:
+    Rectangle(int a = 0, int b=0):Shape(a, b){}
+    int area(){
+        cout << "Rectangle class area: " << endl;
+        return (width*height);
+    }
+};
+class Triangle: public Shape{
+public:
+    Triangle(int a = 0, int b = 0):Shape(a, b){}
+    int area(){
+        cout << "Triangle class area: " << endl;
+        return (width*height/2);
+    }
+};
+int main(){
+    Shape *shape;
+    Rectangle rec(10, 7);
+    Triangle tri(10, 5);
+    shape = &rec;
+    int rectangle = shape->area();
+    shape = &tri;
+    int triangle = shape->area();
+    cout << rectangle << '\t' << triangle << endl;
+    return 0;
+}*/
+/*class D{
+public:
+    D(){
+        cout << "D()" << endl;
+    }
+    ~D(){
+        cout << "~D()" << endl;
+    }
+protected:
+    int d;
+};
+class B: public D{
+public:
+    B(){
+        cout << "B()" << endl;
+    }
+    ~B(){
+        cout << "~B()" << endl;
+    }
+protected:
+    int b;
+};
+class A: public D{
+public:
+    A(){
+        cout << "A()" << endl;
+    }
+    ~A(){
+        cout << "~A()" << endl;
+    }
+protected:
+    int a;
+};
+class C:virtual public B, virtual public A{
+public:
+    C(){
+        cout << "C()" << endl;
+    }
+    ~C(){
+        cout << "~C()" << endl;
+    }
+protected:
+    int c;
+};
+int main(){
+    cout << "Hello World!" << endl;
+    C c;
+    cout << sizeof(c) << endl;
+    return 0;
+}*/
+/*class Shape{
+public:
+    void setWidth(int w){
+        width = w;
+    }
+    void setHeight(int h){
+        height = h;
+    }
+protected:
+    int width;
+    int height;
+};
+class PaintCost{
+public:
+    int getCost(int area){
+        return area*70;
+    }
+};
+class Rectangle: public Shape, public PaintCost{
+public:
+    int getArea(){
+        return (width*height);
+    }
+};
+
+int main(void){
+    Rectangle Rect;
+    int area;
+
+    Rect.setWidth(5);
+    Rect.setHeight(7);
+
+    area = Rect.getArea();
+    cout << "Total area: " << Rect.getArea() << endl;
+    cout << "Total paint cost: $" << Rect.getCost(area) << endl;
+    return 0;
+}*/
+/*class Shape{
+public:
+    void setWidth(int w){
+        width = w;
+    }
+    void setHeight(int h){
+        height = h;
+    }
+protected:
+    int width;
+    int height;
+};
+class Rectangle: public Shape{
+public:
+    int getArea(){
+        return (width*height);
+    }
+};
+
+int main(void){
+    Rectangle Rect;
+    Rect.setWidth(5);
+    Rect.setHeight(7);
+    cout << "Total area: " << Rect.getArea() << endl;
+    return 0;
+}*/
+/*class Box{
 public:
     double getVolum(void){
         return length * breadth * height;
@@ -58,7 +252,7 @@ int main(){
     cout << "Volume of Box3 : " << volume << endl;
 
     return 0;
-}
+}*/
 
 /*class printData{
 public:
